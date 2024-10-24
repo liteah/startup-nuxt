@@ -24,6 +24,7 @@
     "@sidebase/nuxt-auth": "^0.9.4",
     "@vueuse/nuxt": "^11.1.0",
     "nuxt": "^3.13.2",
+    "radix-vue": "^1.9.7",
     "shadcn-nuxt": "^0.10.4",
     "typescript": "^5.6.3",
     "vue": "latest",
@@ -32,7 +33,10 @@
   "packageManager": "pnpm@9.10.0+sha512.73a29afa36a0d092ece5271de5177ecbf8318d454ecd701343131b8ebc0c1a91c487da46ab77c8e596d6acf1461e3594ced4becedf8921b074fbd8653ed7051c",
   "devDependencies": {
     "@antfu/eslint-config": "^3.8.0",
+    "@iconify-json/mingcute": "^1.2.1",
+    "@iconify-json/ri": "^1.2.2",
     "@nuxtjs/tailwindcss": "^6.12.2",
+    "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "eslint-plugin-format": "^0.1.2",
     "shadcn-vue": "^0.11.0",

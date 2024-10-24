@@ -14,7 +14,8 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     // '@sidebase/nuxt-auth'
     '@nuxtjs/color-mode',
-    'shadcn-nuxt'
+    'shadcn-nuxt',
+    'radix-vue/nuxt'
   ],
   colorMode: {
     classSuffix: '',
