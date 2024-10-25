@@ -1,13 +1,11 @@
 <template>
   <div>
-    <LayoutToggleTheme />
+    <LayoutLandingToggleTheme />
   </div>
 </template>
 
 <script lang="ts" setup>
-
+definePageMeta({
+  layout: 'landing',
+})
 </script>
-
-<style>
-
-</style>

@@ -14,21 +14,17 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     // '@sidebase/nuxt-auth'
     '@nuxtjs/color-mode',
+    'radix-vue/nuxt',
     'shadcn-nuxt',
-    'radix-vue/nuxt'
   ],
   colorMode: {
     classSuffix: '',
   },
   shadcn: {
-    componentDir: './app/components/ui'
+    prefix: 'U',
+    componentDir: './app/components/ui',
   },
   future: {
     compatibilityVersion: 4,
-  },
-  experimental: {
-    payloadExtraction: false,
-    renderJsonPayloads: true,
-    typedPages: true,
   },
 })

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <LayoutLandingHeader />
     <slot />
   </div>
 </template>
