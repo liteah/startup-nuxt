@@ -1,7 +1,7 @@
 <template>
   <div>
     <UButton>
-      {{ t('landing.header.auth.no_login') }}
+      {{ t('layout.landing.header.auth.no_login') }}
     </UButton>
   </div>
 </template>

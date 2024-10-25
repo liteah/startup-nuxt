@@ -1,12 +1,37 @@
 {
-  "landing": {
-    "header": {
-      "auth": {
-        "no_login": "Sign In"
-      },
-      "pricing": "Pricing",
-      "blog": "Blog",
-      "docs": "Docs"
+  "layout": {
+    "landing": {
+      "header": {
+        "auth": {
+          "no_login": "Sign In"
+        },
+        "links": {
+          "pricing": "Pricing",
+          "blog": "Blog",
+          "docs": "Docs"
+        }
+      }
+    },
+    "common": {
+      "theme": {
+        "light": "Light",
+        "dark": "Dark",
+        "system": "System"
+      }
+    }
+  },
+  "pages": {
+    "landing": {
+      "metadata": {
+        "title": {
+          "home": "Home",
+          "blog": "Blog"
+        },
+        "description": {
+          "home": "Home of NitroStart",
+          "blog": "Blog of NitroStart"
+        }
+      }
     }
   }
 }

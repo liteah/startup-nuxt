@@ -29,30 +29,6 @@ export default defineNuxtConfig({
         name: "English",
       },
       {
-        code: "de",
-        language: "de-DE",
-        file: "de.json",
-        name: "Deutsch",
-      },
-      {
-        code: "es",
-        language: "es-ES",
-        file: "es.json",
-        name: "Español",
-      },
-      {
-        code: "fr",
-        language: "fr-FR",
-        file: "fr.json",
-        name: "Français",
-      },
-      {
-        code: "pt",
-        language: "pt-PT",
-        file: "pt.json",
-        name: "Português",
-      },
-      {
         code: "ru",
         language: "ru-RU",
         file: "ru.json",
@@ -76,6 +52,30 @@ export default defineNuxtConfig({
         file: "ja.json",
         name: "日本語",
       },
+      // {
+      //   code: "de",
+      //   language: "de-DE",
+      //   file: "de.json",
+      //   name: "Deutsch",
+      // },
+      // {
+      //   code: "es",
+      //   language: "es-ES",
+      //   file: "es.json",
+      //   name: "Español",
+      // },
+      // {
+      //   code: "fr",
+      //   language: "fr-FR",
+      //   file: "fr.json",
+      //   name: "Français",
+      // },
+      // {
+      //   code: "pt",
+      //   language: "pt-PT",
+      //   file: "pt.json",
+      //   name: "Português",
+      // },
     ],
   },
   colorMode: {

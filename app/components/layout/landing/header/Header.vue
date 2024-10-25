@@ -44,16 +44,12 @@ const config = {
 
 const links = computed(() => [
   {
-    label: t('landing.header.pricing'),
+    label: t('layout.landing.header.links.pricing'),
     to: '/pricing',
   },
   {
-    label: t('landing.header.blog'),
+    label: t('layout.landing.header.links.blog'),
     to: '/blog',
-  },
-  {
-    label: t('landing.header.docs'),
-    to: '/docs',
   },
 ])
 </script>

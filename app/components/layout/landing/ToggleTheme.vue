@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const { t } = useI18n()
 const colorMode = useColorMode()
 </script>
 
@@ -10,20 +11,20 @@ const colorMode = useColorMode()
         <Icon name="ri:moon-fill" class="absolute size-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
       </UButton>
     </UDropdownMenuTrigger>
-    <UDropdownMenuContent align="end">
+    <UDropdownMenuContent>
       <UDropdownMenuItem @click="colorMode.preference = 'light'" class="flex gap-2">
         <Icon name="mingcute:sun-line" class="size-[1.2rem]" />
-        Light
+        {{ t('layout.common.theme.light') }}
       </UDropdownMenuItem>
       <UDropdownMenuItem @click="colorMode.preference = 'dark'" class="flex gap-2">
         <Icon name="mingcute:moon-line" class="size-[1.2rem]" />
-        Dark
+        {{ t('layout.common.theme.dark') }}
       </UDropdownMenuItem>
       <UDropdownMenuItem @click="colorMode.preference = 'system'" class="flex gap-2">
         <Icon name="mingcute:cellphone-line" class="size-[1.2rem] block md:hidden" />
         <Icon name="ri:tablet-line" class="size-[1.2rem] md:block hidden lg:hidden" />
         <Icon name="mingcute:computer-line" class="size-[1.2rem] lg:block hidden" />
-        System
+        {{ t('layout.common.theme.system') }}
       </UDropdownMenuItem>
     </UDropdownMenuContent>
   </UDropdownMenu>

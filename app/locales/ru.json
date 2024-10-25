@@ -1,12 +1,37 @@
 {
-  "landing": {
-    "header": {
-      "auth": {
-        "no_login": "Войти"
-      },
-      "pricing": "Цены",
-      "blog": "Блог",
-      "docs": "Документация"
+  "layout": {
+    "landing": {
+      "header": {
+        "auth": {
+          "no_login": "Войти"
+        },
+        "links": {
+          "pricing": "Цены",
+          "blog": "Блог",
+          "docs": "Документация"
+        }
+      }
+    },
+    "common": {
+      "theme": {
+        "light": "Светлая",
+        "dark": "Темная",
+        "system": "Системная"
+      }
+    }
+  },
+  "pages": {
+    "landing": {
+      "metadata": {
+        "title": {
+          "home": "Главная страница",
+          "blog": "Блог"
+        },
+        "description": {
+          "home": "Главная страница NitroStart",
+          "blog": "Блог NitroStart"
+        }
+      }
     }
   }
 }

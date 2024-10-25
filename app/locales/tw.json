@@ -1,12 +1,37 @@
 {
-  "landing": {
-    "header": {
-      "auth": {
-        "no_login": "登入"
-      },
-      "pricing": "定價",
-      "blog": "部落格",
-      "docs": "文件"
+  "layout": {
+    "landing": {
+      "header": {
+        "auth": {
+          "no_login": "登入"
+        },
+        "links": {
+          "pricing": "定價",
+          "blog": "部落格",
+          "docs": "文件"
+        }
+      }
+    },
+    "common": {
+      "theme": {
+        "light": "淺色",
+        "dark": "深色",
+        "system": "跟隨系統"
+      }
+    }
+  },
+  "pages": {
+    "landing": {
+      "metadata": {
+        "title": {
+          "home": "主頁",
+          "blog": "部落格"
+        },
+        "description": {
+          "home": "NitroStart 的主頁",
+          "blog": "NitroStart 的部落格"
+        }
+      }
     }
   }
 }

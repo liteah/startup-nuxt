@@ -1,13 +1,37 @@
 {
-  "landing": {
-    "header": {
-      "auth": {
-        "no_login": "ログイン"
-      },
-      "pricing": "価格",
-      "blog": "ブログ",
-      "docs": "ドキュメント"
+  "layout": {
+    "landing": {
+      "header": {
+        "auth": {
+          "no_login": "サインイン"
+        },
+        "links": {
+          "pricing": "価格",
+          "blog": "ブログ",
+          "docs": "ドキュメント"
+        }
+      }
+    },
+    "common": {
+      "theme": {
+        "light": "ライト",
+        "dark": "ダーク",
+        "system": "システム"
+      }
+    }
+  },
+  "pages": {
+    "landing": {
+      "metadata": {
+        "title": {
+          "home": "ホーム",
+          "blog": "ブログ"
+        },
+        "description": {
+          "home": "NitroStartのホーム",
+          "blog": "NitroStartのブログ"
+        }
+      }
     }
   }
 }
-
