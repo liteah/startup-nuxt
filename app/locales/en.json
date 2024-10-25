@@ -13,6 +13,7 @@
       }
     },
     "common": {
+      "search": "Search...",
       "theme": {
         "light": "Light",
         "dark": "Dark",
