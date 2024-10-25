@@ -1,0 +1,13 @@
+{
+  "landing": {
+    "header": {
+      "auth": {
+        "no_login": "ログイン"
+      },
+      "pricing": "価格",
+      "blog": "ブログ",
+      "docs": "ドキュメント"
+    }
+  }
+}
+

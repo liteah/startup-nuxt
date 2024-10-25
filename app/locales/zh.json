@@ -1,0 +1,12 @@
+{
+  "landing": {
+    "header": {
+      "auth": {
+        "no_login": "登录"
+      },
+      "pricing": "定价",
+      "blog": "博客",
+      "docs": "文档"
+    }
+  }
+}

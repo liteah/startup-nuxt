@@ -1,0 +1,12 @@
+{
+  "landing": {
+    "header": {
+      "auth": {
+        "no_login": "Iniciar sesión"
+      },
+      "pricing": "Precios",
+      "blog": "Blog",
+      "docs": "Documentación"
+    }
+  }
+}

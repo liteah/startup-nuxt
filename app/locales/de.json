@@ -1,0 +1,12 @@
+{
+  "landing": {
+    "header": {
+      "auth": {
+        "no_login": "Anmelen"
+      },
+      "pricing": "Preise",
+      "blog": "Blog",
+      "docs": "Dokumentation"
+    }
+  }
+}

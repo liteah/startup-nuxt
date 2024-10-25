@@ -3,15 +3,15 @@
     <div class="container flex items-center justify-between gap-3 h-16">
       <div class="lg:flex-1 flex items-center gap-1.5">
         <NuxtLink to="/" aria-label="Home" class="flex-shrink-0 font-bold text-xl flex justify-center items-center gap-1.5">
-          <NuxtImg v-if="config.app.logo.image" :src="config.app.logo.src" />
-          <Icon v-if="config.app.logo.icon" :name="config.app.logo.name" class="size-8" />
-          <span v-if="config.app.logo.text" class="text-xl">{{ config.app.name }}</span>
+          <NuxtImg v-if="appConfig.logo.image" :src="appConfig.logo.src" />
+          <Icon v-if="appConfig.logo.icon" :name="appConfig.logo.name" class="size-8" />
+          <span v-if="appConfig.logo.text" class="text-xl">{{ appConfig.name }}</span>
         </NuxtLink>
       </div>
       <div class="hidden lg:flex">
         <UNavigationMenu>
           <UNavigationMenuList>
-            <UNavigationMenuItem v-for="link in config.landing.header.links" :key="link.to">
+            <UNavigationMenuItem v-for="link in links" :key="link.to">
               <UNavigationMenuLink :class="navigationMenuTriggerStyle()">
                 <NuxtLink :to="link.to">
                   {{ link.label }}
@@ -22,8 +22,9 @@
         </UNavigationMenu>
       </div>
       <div class="flex items-center justify-end lg:flex-1 gap-1.5">
-        <LayoutLandingToggleTheme v-if="config.landing.header.theme" />
-        <LayoutLandingHeaderAuth v-if="config.landing.header.auth" />
+        <LayoutLandingToggleTheme v-if="config.theme" />
+        <LayoutLandingToggleLanguage v-if="config.language" />
+        <LayoutLandingHeaderAuth v-if="config.auth" />
       </div>
     </div>
   </header>
@@ -32,5 +33,27 @@
 <script lang="ts" setup>
 import { navigationMenuTriggerStyle } from '@/components/ui/navigation-menu'
 
-const config = useAppConfig()
+const { t } = useI18n()
+const appConfig = useAppConfig()
+
+const config = {
+  theme: true,
+  language: true,
+  auth: true,
+}
+
+const links = computed(() => [
+  {
+    label: t('landing.header.pricing'),
+    to: '/pricing',
+  },
+  {
+    label: t('landing.header.blog'),
+    to: '/blog',
+  },
+  {
+    label: t('landing.header.docs'),
+    to: '/docs',
+  },
+])
 </script>
