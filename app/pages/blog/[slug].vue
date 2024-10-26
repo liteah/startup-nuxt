@@ -7,7 +7,7 @@
         <div class="flex items-center gap-4 text-muted-foreground">
           <div class="flex items-center gap-1">
             <Icon name="mingcute:calendar-line" class="size-4" />
-            <time :datetime="post.date">{{ new Date(post.date).toLocaleDateString() }}</time>
+            <time :datetime="post.date">{{ formatDate(post.date) }}</time>
           </div>
           <div class="flex items-center gap-1">
             <Icon name="mingcute:user-3-line" class="size-4" />
@@ -21,59 +21,87 @@
         </div>
       </header>
 
-      <div class="prose prose-lg max-w-none">
-        <ContentDoc />
+      <div class="prose prose-lg max-w-none dark:prose-invert prose-headings:font-bold prose-a:text-blue-600">
+        <ContentRenderer :value="post" />
       </div>
     </article>
   </main>
 </template>
 
 <script lang="ts" setup>
-const { path } = useRoute()
+const { locale } = useI18n()
+const route = useRoute()
+
+const baseSlug = computed(() => {
+  const slug = route.params.slug as string
+  return slug.replace(/\.(en|zh)$/, '')
+})
+
+const { data: post } = await useAsyncData(`content-${route.path}`, async () => {
+  const posts = await queryContent('blog')
+    .where({
+      _file: { $regex: new RegExp(`${baseSlug.value}(\\.${locale.value})?\\.md$`) }
+    })
+    .find()
+
+  const localizedPost = posts.find(p => p._file?.includes(`.${locale.value}.`))
+  return localizedPost || posts[0]
+})
 
 definePageMeta({
   layout: 'landing'
 })
 
-const { data: post } = await useAsyncData(`content-${path}`, () => queryContent(path).findOne())
-if (!post.value)
+if (!post.value) {
   throw createError({ statusCode: 404, statusMessage: 'Post not found', fatal: true })
+}
+
+const formatDate = (date: string) => {
+  return new Date(date).toLocaleDateString(locale.value, {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  })
+}
 
 useHead({
-  title: `${post.value.title}`,
+  title: post.value.title,
   meta: [
     { name: 'description', content: post.value.description },
     { name: 'author', content: post.value.author },
-    // Open Graph
     { property: 'og:title', content: post.value.title },
     { property: 'og:description', content: post.value.description },
     { property: 'og:image', content: post.value.cover },
     { property: 'og:type', content: 'article' },
-    // Twitter Card
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:title', content: post.value.title },
     { name: 'twitter:description', content: post.value.description },
     { name: 'twitter:image', content: post.value.cover },
   ],
-  script: [
-    {
-      type: 'application/ld+json',
-      children: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'BlogPosting',
-        headline: post.value.title,
-        image: post.value.cover,
-        datePublished: post.value.date,
-        author: {
-          '@type': 'Person',
-          name: post.value.author
-        }
-      })
-    }
-  ]
+  script: [{
+    type: 'application/ld+json',
+    children: JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      headline: post.value.title,
+      image: post.value.cover,
+      datePublished: post.value.date,
+      author: {
+        '@type': 'Person',
+        name: post.value.author
+      }
+    })
+  }]
 })
 </script>
 
 <style>
-
+.prose h1 a,
+.prose h2 a,
+.prose h3 a,
+.prose h4 a,
+.prose h5 a,
+.prose h6 a {
+  @apply no-underline text-foreground hover:no-underline;
+}
 </style>

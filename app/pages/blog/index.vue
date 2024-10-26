@@ -30,7 +30,7 @@
         </div>
 
         <div class="flex-1 min-w-0">
-          <NuxtLink :to="post._path" class="block group">
+          <NuxtLink :to="`/blog/${post._file.split('/').pop().split('.')[0]}`" class="block group">
             <h3 class="text-xl font-semibold mb-2 line-clamp-1">
               {{ post.title }}
             </h3>
@@ -60,29 +60,40 @@
 </template>
 
 <script lang="ts" setup>
+const { locale, t } = useI18n()
+
 definePageMeta({
   layout: 'landing',
 })
 
 const searchQuery = ref('')
 
-const { data: posts } = await useAsyncData('posts', () => queryContent('blog')
-  .sort({ date: -1 })
-  .find()
-)
+const { data: posts } = await useAsyncData('posts', async () => {
+  const allPosts = await queryContent('blog').find()
 
-const filteredPosts = computed(() => {
-  if (!searchQuery.value) return posts.value
-  const query = searchQuery.value.toLowerCase()
-  if (!posts.value) return []
-  return posts.value?.filter(post =>
-    post.title?.toLowerCase().includes(query) ||
-    post.description?.toLowerCase().includes(query) ||
-    post.tags?.some((tag: string) => tag.toLowerCase().includes(query))
-  )
+  const filteredPosts = allPosts.reduce((acc: any[], post: any) => {
+    const fileName = post._file.split('/').pop()
+    const baseSlug = fileName.replace(/\.(en|zh)\.md$/, '')
+
+    const existingPost = acc.find(p => {
+      const existingFile = p._file.split('/').pop()
+      return existingFile.startsWith(baseSlug)
+    })
+
+    if (existingPost) {
+      if (fileName.includes(`.${locale.value}.`)) {
+        const index = acc.indexOf(existingPost)
+        acc[index] = post
+      }
+    } else {
+      acc.push(post)
+    }
+
+    return acc
+  }, [])
+
+  return filteredPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 })
-
-const { t } = useI18n()
 
 useHead({
   title: t('pages.landing.metadata.title.blog'),
@@ -92,4 +103,17 @@ useHead({
     { name: 'og:description', content: t('pages.landing.metadata.description') },
   ]
 })
+
+const filteredPosts = computed(() => {
+  if (!searchQuery.value || !posts.value) return posts.value
+
+  const query = searchQuery.value.toLowerCase()
+  return posts.value.filter(post =>
+    post.title?.toLowerCase().includes(query) ||
+    post.description?.toLowerCase().includes(query) ||
+    post.tags?.some((tag: string) => tag.toLowerCase().includes(query))
+  )
+})
+
 </script>
+

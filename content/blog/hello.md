@@ -1,24 +1,24 @@
 ---
-title: 文章标题
-description: 文章简介
+title: Title
+description: Description
 date: 2023-08-20
-author: 作者名称
+author: Author
 cover: https://gridea.dev/gridea-meta-en.png
 tags:
-  - 标签1
-  - 标签2
+  - Tag1
+  - Tag2
 ---
 
-这里是文章正文内容...
+Here is the content...
 
-## 二级标题
+## Second title
 
-你好，世界！
+Hello, world!
 
-### 三级标题
+### Third title
 
-Typora 是一款支持 Markdown 的文本编辑器，它支持 Windows、macOS 和 Linux 平台。
+Typora is a cross-platform text editor that supports Windows, macOS, and Linux platforms.
 
-#### 四级标题
+#### Fourth title
 
-华为是一家中国的科技公司，成立于 1987 年，总部位于深圳。
+Huawei is a Chinese technology company founded in 1987, headquartered in Shenzhen.
