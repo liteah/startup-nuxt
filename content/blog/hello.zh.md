@@ -7,6 +7,7 @@ cover: https://gridea.dev/gridea-meta-en.png
 tags:
   - 标签1
   - 标签2
+sitemap: false
 ---
 
 这里是文章正文内容...

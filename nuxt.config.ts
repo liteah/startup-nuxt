@@ -16,6 +16,7 @@ export default defineNuxtConfig({
     'radix-vue/nuxt',
     'shadcn-nuxt',
     'nuxt-auth-utils',
+    '@nuxtjs/seo',
   ],
   devtools: { enabled: true },
   colorMode: {
@@ -32,6 +33,7 @@ export default defineNuxtConfig({
     defaultLocale: 'en',
   },
   runtimeConfig: {
+    // see https://github.com/Atinux/nuxt-auth-utils?tab=readme-ov-file#supported-oauth-providers
     oauth: {
       github: {
         clientId: process.env.GITHUB_CLIENT_ID,
@@ -40,6 +42,16 @@ export default defineNuxtConfig({
       google: {
         clientId: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      },
+    },
+    scripts: {
+      // see https://analytics.google.com/
+      googleAnalytics: {
+        id: process.env.GOOGLE_ANALYTICS_ID,
+      },
+      // see https://clarity.microsoft.com/
+      clarity: {
+        id: process.env.CLARITY_ID,
       },
     },
   },
@@ -96,6 +108,12 @@ export default defineNuxtConfig({
         name: '日本語',
       },
     ],
+  },
+  scripts: {
+    registry: {
+      googleAnalytics: true,
+      clarity: true,
+    },
   },
   shadcn: {
     prefix: 'U',
