@@ -6,17 +6,16 @@
       </UButton>
     </UDropdownMenuTrigger>
     <UDropdownMenuContent>
-      <NuxtLink v-for="locale in locales" :key="locale.code" :to="switchLocalePath(locale.code)">
-        <UDropdownMenuItem class="flex items-center justify-between">
+      <UDropdownMenuGroup>
+        <UDropdownMenuItem v-for="locale in locales" :key="locale.code" @click="setLocale(locale.code)" class="flex items-center justify-between">
           {{ locale.name }}
           <Icon v-if="locale.code === currentLocale" name="mingcute:check-fill" />
         </UDropdownMenuItem>
-      </NuxtLink>
+      </UDropdownMenuGroup>
     </UDropdownMenuContent>
   </UDropdownMenu>
 </template>
 
 <script lang="ts" setup>
 const { locale: currentLocale, locales, setLocale } = useI18n()
-const switchLocalePath = useSwitchLocalePath()
 </script>

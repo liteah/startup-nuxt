@@ -30,7 +30,7 @@
         </div>
 
         <div class="flex-1 min-w-0">
-          <NuxtLink :to="`/blog/${post._file.split('/').pop().split('.')[0]}`" class="block group">
+          <NuxtLink :to="localePath(`/blog/${post._file.split('/').pop().split('.')[0]}`)" class="block group">
             <h3 class="text-xl font-semibold mb-2 line-clamp-1">
               {{ post.title }}
             </h3>
@@ -61,6 +61,7 @@
 
 <script lang="ts" setup>
 const { locale, t } = useI18n()
+const localePath = useLocalePath()
 
 definePageMeta({
   layout: 'landing',

@@ -2,7 +2,7 @@
   <header class="bg-background/75 backdrop-blur border-b border-muted -mb-px sticky top-0 z-50">
     <div class="container flex items-center justify-between gap-3 h-16">
       <div class="lg:flex-1 flex items-center gap-1.5">
-        <NuxtLink to="/" aria-label="Home" class="flex-shrink-0 font-bold text-xl flex justify-center items-center gap-1.5">
+        <NuxtLink :to="localePath('/')" aria-label="Home" class="flex-shrink-0 font-bold text-xl flex justify-center items-center gap-1.5">
           <NuxtImg v-if="appConfig.logo.image" :src="appConfig.logo.src" />
           <Icon v-if="appConfig.logo.icon" :name="appConfig.logo.name" class="size-8" />
           <span v-if="appConfig.logo.text" class="text-xl">{{ appConfig.name }}</span>
@@ -13,7 +13,7 @@
           <UNavigationMenuList>
             <UNavigationMenuItem v-for="link in links" :key="link.to">
               <UNavigationMenuLink :class="navigationMenuTriggerStyle()">
-                <NuxtLink :to="link.to">
+                <NuxtLink :to="localePath(link.to)">
                   {{ link.label }}
                 </NuxtLink>
               </UNavigationMenuLink>
@@ -34,6 +34,7 @@
 import { navigationMenuTriggerStyle } from '@/components/ui/navigation-menu'
 
 const { t } = useI18n()
+const localePath = useLocalePath()
 const appConfig = useAppConfig()
 
 const config = {
