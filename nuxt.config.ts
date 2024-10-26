@@ -76,6 +76,14 @@ export default defineNuxtConfig({
     prefix: 'U',
     componentDir: './app/components/ui',
   },
+  eslint: {
+    config: {
+      standalone: false,
+      nuxt: {
+        sortConfigKeys: true,
+      },
+    },
+  },
   future: {
     compatibilityVersion: 4,
   },
