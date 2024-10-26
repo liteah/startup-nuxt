@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import process from 'node:process'
+
 export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
@@ -10,10 +12,10 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@nuxt/image',
     '@vueuse/nuxt',
-    // '@sidebase/nuxt-auth'
     '@nuxtjs/color-mode',
     'radix-vue/nuxt',
     'shadcn-nuxt',
+    'nuxt-auth-utils',
   ],
   devtools: { enabled: true },
   colorMode: {
@@ -28,6 +30,18 @@ export default defineNuxtConfig({
     documentDriven: true,
     locales: ['en', 'ru', 'zh', 'tw', 'ja'],
     defaultLocale: 'en',
+  },
+  runtimeConfig: {
+    oauth: {
+      github: {
+        clientId: process.env.GITHUB_CLIENT_ID,
+        clientSecret: process.env.GITHUB_CLIENT_SECRET,
+      },
+      google: {
+        clientId: process.env.GOOGLE_CLIENT_ID,
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      },
+    },
   },
   future: {
     compatibilityVersion: 4,
