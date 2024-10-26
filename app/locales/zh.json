@@ -1,4 +1,13 @@
 {
+  "common": {
+    "home": "主页",
+    "search": "搜索...",
+    "theme": {
+      "light": "浅色",
+      "dark": "深色",
+      "system": "跟随系统"
+    }
+  },
   "layout": {
     "landing": {
       "header": {
@@ -10,15 +19,6 @@
           "blog": "博客",
           "docs": "文档"
         }
-      }
-    },
-    "common": {
-      "home": "主页",
-      "search": "搜索...",
-      "theme": {
-        "light": "浅色",
-        "dark": "深色",
-        "system": "跟随系统"
       }
     }
   },

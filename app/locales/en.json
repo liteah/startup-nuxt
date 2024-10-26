@@ -1,4 +1,13 @@
 {
+  "common": {
+    "home": "Home",
+    "search": "Search...",
+    "theme": {
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
+    }
+  },
   "layout": {
     "landing": {
       "header": {
@@ -10,15 +19,6 @@
           "blog": "Blog",
           "docs": "Docs"
         }
-      }
-    },
-    "common": {
-      "home": "Home",
-      "search": "Search...",
-      "theme": {
-        "light": "Light",
-        "dark": "Dark",
-        "system": "System"
       }
     }
   },

@@ -8,7 +8,7 @@ const localePath = useLocalePath()
     <NuxtLink :to="localePath('/')">
       <UButton variant="outline" class="h-10">
         <Icon name="mingcute:left-fill" class="size-4 md:mr-2" />
-        <span class="hidden md:inline">{{ t('layout.auth.header.home') }}</span>
+        <span class="hidden md:inline">{{ t('common.home') }}</span>
       </UButton>
     </NuxtLink>
     <div class="hidden items-center space-x-2 md:flex">

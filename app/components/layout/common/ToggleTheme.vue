@@ -14,17 +14,17 @@ const colorMode = useColorMode()
     <UDropdownMenuContent>
       <UDropdownMenuItem class="flex gap-2" @click="colorMode.preference = 'light'">
         <Icon name="mingcute:sun-line" class="size-[1.2rem]" />
-        {{ t('layout.common.theme.light') }}
+        {{ t('common.theme.light') }}
       </UDropdownMenuItem>
       <UDropdownMenuItem class="flex gap-2" @click="colorMode.preference = 'dark'">
         <Icon name="mingcute:moon-line" class="size-[1.2rem]" />
-        {{ t('layout.common.theme.dark') }}
+        {{ t('common.theme.dark') }}
       </UDropdownMenuItem>
       <UDropdownMenuItem class="flex gap-2" @click="colorMode.preference = 'system'">
         <Icon name="mingcute:cellphone-line" class="size-[1.2rem] block md:hidden" />
         <Icon name="ri:tablet-line" class="size-[1.2rem] md:block hidden lg:hidden" />
         <Icon name="mingcute:computer-line" class="size-[1.2rem] lg:block hidden" />
-        {{ t('layout.common.theme.system') }}
+        {{ t('common.theme.system') }}
       </UDropdownMenuItem>
     </UDropdownMenuContent>
   </UDropdownMenu>

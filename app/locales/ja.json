@@ -1,4 +1,13 @@
 {
+  "common": {
+    "home": "ホーム",
+    "search": "検索...",
+    "theme": {
+      "light": "ライト",
+      "dark": "ダーク",
+      "system": "システム"
+    }
+  },
   "layout": {
     "landing": {
       "header": {
@@ -10,15 +19,6 @@
           "blog": "ブログ",
           "docs": "ドキュメント"
         }
-      }
-    },
-    "common": {
-      "home": "ホーム",
-      "search": "検索...",
-      "theme": {
-        "light": "ライト",
-        "dark": "ダーク",
-        "system": "システム"
       }
     }
   },
