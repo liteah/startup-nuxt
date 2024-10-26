@@ -1,3 +1,27 @@
+<script lang="ts" setup>
+import { navigationMenuTriggerStyle } from '@/components/ui/navigation-menu'
+
+const { t } = useI18n()
+const localePath = useLocalePath()
+
+const config = {
+  theme: true,
+  language: true,
+  auth: true,
+}
+
+const links = computed(() => [
+  {
+    label: t('layout.landing.header.links.pricing'),
+    to: '/pricing',
+  },
+  {
+    label: t('layout.landing.header.links.blog'),
+    to: '/blog',
+  },
+])
+</script>
+
 <template>
   <header class="bg-background/75 backdrop-blur border-b border-muted -mb-px sticky top-0 z-50">
     <div class="container flex items-center justify-between gap-3 h-16">
@@ -25,28 +49,3 @@
     </div>
   </header>
 </template>
-
-<script lang="ts" setup>
-import { navigationMenuTriggerStyle } from '@/components/ui/navigation-menu'
-
-const { t } = useI18n()
-const localePath = useLocalePath()
-const appConfig = useAppConfig()
-
-const config = {
-  theme: true,
-  language: true,
-  auth: true,
-}
-
-const links = computed(() => [
-  {
-    label: t('layout.landing.header.links.pricing'),
-    to: '/pricing',
-  },
-  {
-    label: t('layout.landing.header.links.blog'),
-    to: '/blog',
-  },
-])
-</script>

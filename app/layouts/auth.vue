@@ -1,3 +1,7 @@
+<script lang="ts" setup>
+const { name } = useAppConfig()
+</script>
+
 <template>
   <div class="flex min-h-screen flex-col">
     <LayoutAuthHeader />
@@ -11,7 +15,3 @@
     </footer>
   </div>
 </template>
-
-<script lang="ts" setup>
-const { name } = useAppConfig()
-</script>

@@ -1,3 +1,7 @@
+<script lang="ts" setup>
+const { locale: currentLocale, locales, setLocale } = useI18n()
+</script>
+
 <template>
   <UDropdownMenu>
     <UDropdownMenuTrigger>
@@ -7,7 +11,7 @@
     </UDropdownMenuTrigger>
     <UDropdownMenuContent>
       <UDropdownMenuGroup>
-        <UDropdownMenuItem v-for="locale in locales" :key="locale.code" @click="setLocale(locale.code)" class="flex items-center justify-between">
+        <UDropdownMenuItem v-for="locale in locales" :key="locale.code" class="flex items-center justify-between" @click="setLocale(locale.code)">
           {{ locale.name }}
           <Icon v-if="locale.code === currentLocale" name="mingcute:check-fill" />
         </UDropdownMenuItem>
@@ -15,7 +19,3 @@
     </UDropdownMenuContent>
   </UDropdownMenu>
 </template>
-
-<script lang="ts" setup>
-const { locale: currentLocale, locales, setLocale } = useI18n()
-</script>
