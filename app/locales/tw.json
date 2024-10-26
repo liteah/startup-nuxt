@@ -13,6 +13,7 @@
       }
     },
     "common": {
+      "home": "主頁",
       "search": "搜尋...",
       "theme": {
         "light": "淺色",

@@ -13,6 +13,7 @@
       }
     },
     "common": {
+      "home": "Home",
       "search": "Search...",
       "theme": {
         "light": "Light",

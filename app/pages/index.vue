@@ -1,6 +1,6 @@
 <template>
   <div>
-    <LayoutLandingToggleTheme />
+    Test
   </div>
 </template>
 

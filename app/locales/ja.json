@@ -13,6 +13,7 @@
       }
     },
     "common": {
+      "home": "ホーム",
       "search": "検索...",
       "theme": {
         "light": "ライト",
