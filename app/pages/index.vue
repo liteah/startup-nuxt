@@ -16,5 +16,7 @@ useHead({
 <template>
   <div>
     <PageLandingHeroQuickUse />
+    <PageLandingFAQ />
+    <PageLandingCTA />
   </div>
 </template>
