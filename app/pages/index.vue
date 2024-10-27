@@ -15,6 +15,6 @@ useHead({
 
 <template>
   <div>
-    Test
+    <PageLandingHeroQuickUse />
   </div>
 </template>
