@@ -6,6 +6,7 @@
   <div>
     <LayoutLandingHeader />
     <slot />
+    <LayoutLandingFooter />
   </div>
 </template>
 

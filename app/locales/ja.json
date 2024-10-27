@@ -19,6 +19,29 @@
           "blog": "ブログ",
           "docs": "ドキュメント"
         }
+      },
+      "footer": {
+        "links": {
+          "legal": {
+            "label": "法律",
+            "terms": "利用規約",
+            "privacy": "プライバシーポリシー"
+          },
+          "product": {
+            "label": "製品",
+            "features": "機能",
+            "blog": "ブログ"
+          },
+          "company": {
+            "label": "会社",
+            "about": "会社概要",
+            "careers": "採用情報"
+          },
+          "resources": {
+            "label": "リソース",
+            "docs": "ドキュメント"
+          }
+        }
       }
     }
   },
