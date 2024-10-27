@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { navigationMenuTriggerStyle } from '@/components/ui/navigation-menu'
 
-const { t } = useI18n()
+const { t, locales, setLocale } = useI18n()
 const localePath = useLocalePath()
 
 const config = {
@@ -42,9 +42,34 @@ const links = computed(() => [
         </UNavigationMenu>
       </div>
       <div class="flex items-center justify-end lg:flex-1 gap-1.5">
-        <LayoutCommonToggleTheme v-if="config.theme" />
-        <LayoutCommonToggleLanguage v-if="config.language" />
+        <div class="hidden lg:flex gap-1.5">
+          <LayoutCommonToggleTheme v-if="config.theme" />
+          <LayoutCommonToggleLanguage v-if="config.language" />
+        </div>
         <LayoutLandingHeaderAuth v-if="config.auth" />
+        <div class="lg:hidden">
+          <USheet>
+            <USheetTrigger as-child>
+              <UButton variant="outline" size="icon">
+                <Icon name="mingcute:menu-fill" class="h-5 w-5" />
+              </UButton>
+              <USheetContent class="p-0">
+                <div class="container flex flex-col gap-5 mx-auto mt-10">
+                  <ul class="flex flex-col gap-5">
+                    <li v-for="link in links" :key="link.to">
+                      <NuxtLink class="py-2" :to="localePath(link.to)">
+                        {{ link.label }}
+                      </NuxtLink>
+                    </li>
+                    <li v-for="locale in locales" :key="locale.code" @click="setLocale(locale.code)">
+                      {{ locale.name }}
+                    </li>
+                  </ul>
+                </div>
+              </USheetContent>
+            </USheetTrigger>
+          </USheet>
+        </div>
       </div>
     </div>
   </header>
