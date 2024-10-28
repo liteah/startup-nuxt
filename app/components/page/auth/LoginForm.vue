@@ -1,3 +1,9 @@
+<script lang="ts" setup>
+function handleOAuthLogin(provider: string) {
+  window.location.href = `/auth/${provider}`
+}
+</script>
+
 <template>
   <UCard class-name="w-[350px] sm:w-[400px] md:w-[450px]">
     <UCardHeader>
@@ -12,26 +18,24 @@
     <UCardContent>
       <USeparator class="my-4" label="OR" />
       <div class="flex flex-col gap-2.5 w-full">
-        <NuxtLink to="/auth/google" target="_blank">
-          <UButton
-            block
-            variant="outline"
-            class="flex items-center gap-2 w-full"
-          >
-            <Icon name="mingcute:google-line" class="size-5" />
-            {{ $t('pages.auth.login.google') }}
-          </UButton>
-        </NuxtLink>
-        <NuxtLink to="/auth/github" target="_blank">
-          <UButton
-            block
-            variant="outline"
-            class="flex items-center gap-2 w-full"
-          >
-            <Icon name="mingcute:github-line" class="size-5" />
-            {{ $t('pages.auth.login.github') }}
-          </UButton>
-        </NuxtLink>
+        <UButton
+          block
+          variant="outline"
+          class="flex items-center gap-2 w-full"
+          @click="handleOAuthLogin('google')"
+        >
+          <Icon name="mingcute:google-line" class="size-5" />
+          {{ $t('pages.auth.login.google') }}
+        </UButton>
+        <UButton
+          block
+          variant="outline"
+          class="flex items-center gap-2 w-full"
+          @click="handleOAuthLogin('github')"
+        >
+          <Icon name="mingcute:github-line" class="size-5" />
+          {{ $t('pages.auth.login.github') }}
+        </UButton>
       </div>
     </UCardContent>
   </UCard>
