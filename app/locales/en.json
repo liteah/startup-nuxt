@@ -5,8 +5,10 @@
     "theme": {
       "light": "Light",
       "dark": "Dark",
-      "system": "System"
-    }
+      "system": "System",
+      "title": "Appearance"
+    },
+    "language": "Language"
   },
   "layout": {
     "landing": {
