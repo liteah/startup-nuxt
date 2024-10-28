@@ -12,7 +12,9 @@
     "landing": {
       "header": {
         "auth": {
-          "no_login": "Sign In"
+          "no_login": "Sign In",
+          "signout": "Sign out",
+          "credit": "Credit:"
         },
         "links": {
           "pricing": "Pricing",
@@ -57,6 +59,14 @@
           "home": "Home of NitroStart",
           "blog": "Blog of NitroStart"
         }
+      }
+    },
+    "auth": {
+      "login": {
+        "google": "Continue with Google",
+        "github": "Continue with GitHub",
+        "description": "If you don't have an account yet, we'll create one for you.",
+        "title": "Sign in"
       }
     }
   }

@@ -3,6 +3,7 @@ import { navigationMenuTriggerStyle } from '@/components/ui/navigation-menu'
 
 const { t, locales, setLocale } = useI18n()
 const localePath = useLocalePath()
+const { loggedIn } = useUserSession()
 
 const config = {
   theme: true,
@@ -42,7 +43,7 @@ const links = computed(() => [
         </UNavigationMenu>
       </div>
       <div class="flex items-center justify-end lg:flex-1 gap-1.5">
-        <div class="hidden lg:flex gap-1.5">
+        <div v-if="!loggedIn" class="hidden lg:flex gap-1.5">
           <LayoutCommonToggleTheme v-if="config.theme" />
           <LayoutCommonToggleLanguage v-if="config.language" />
         </div>

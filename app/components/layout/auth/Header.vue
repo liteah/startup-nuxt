@@ -11,11 +11,8 @@ const localePath = useLocalePath()
         <span class="hidden md:inline">{{ t('common.home') }}</span>
       </UButton>
     </NuxtLink>
-    <div class="hidden items-center space-x-2 md:flex">
-      <LayoutCommonLogo />
-    </div>
     <div class="flex items-center space-x-2">
-      <LayoutCommonSelectLanguage />
+      <LayoutCommonToggleLanguage />
       <LayoutCommonToggleTheme />
     </div>
   </header>
