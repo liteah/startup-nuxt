@@ -5,45 +5,45 @@ const localePath = useLocalePath()
 
 const links = computed(() => [
   {
-    label: t('layout.landing.footer.links.product.label'),
+    label: t('footer.links.product.label'),
     links: [
       {
-        label: t('layout.landing.footer.links.product.features'),
+        label: t('footer.links.product.features'),
         to: '/features',
       },
     ],
   },
   {
-    label: t('layout.landing.footer.links.resources.label'),
+    label: t('footer.links.resources.label'),
     links: [
       {
-        label: t('layout.landing.footer.links.resources.docs'),
+        label: t('footer.links.resources.docs'),
         to: '/docs',
       },
     ],
   },
   {
-    label: t('layout.landing.footer.links.company.label'),
+    label: t('footer.links.company.label'),
     links: [
       {
-        label: t('layout.landing.footer.links.company.about'),
+        label: t('footer.links.company.about'),
         to: '/about',
       },
       {
-        label: t('layout.landing.footer.links.company.contact'),
+        label: t('footer.links.company.contact'),
         to: '/contact',
       },
     ],
   },
   {
-    label: t('layout.landing.footer.links.legal.label'),
+    label: t('footer.links.legal.label'),
     links: [
       {
-        label: t('layout.landing.footer.links.legal.terms'),
+        label: t('footer.links.legal.terms'),
         to: '/legal/terms',
       },
       {
-        label: t('layout.landing.footer.links.legal.privacy'),
+        label: t('footer.links.legal.privacy'),
         to: '/legal/privacy',
       },
     ],
@@ -57,7 +57,7 @@ const links = computed(() => [
       <div class="col-span-full pb-10 lg:col-span-2">
         <CommonLogo class="flex justify-start items-start" />
         <p class="mt-5 text-muted-foreground">
-          {{ t('layout.landing.footer.description') }}
+          {{ t('footer.description') }}
         </p>
       </div>
       <template v-for="link in links" :key="link.label">

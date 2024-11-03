@@ -9,10 +9,10 @@ function handleOAuthLogin(provider: string) {
     <UCardHeader>
       <CommonLogo />
       <UCardTitle class="text-left text-2xl font-semibold">
-        {{ $t('pages.auth.login.title') }}
+        {{ $t('auth.login.title') }}
       </UCardTitle>
       <UCardDescription>
-        {{ $t('pages.auth.login.description') }}
+        {{ $t('auth.login.description') }}
       </UCardDescription>
     </UCardHeader>
     <UCardContent>
@@ -25,7 +25,7 @@ function handleOAuthLogin(provider: string) {
           @click="handleOAuthLogin('google')"
         >
           <Icon name="mingcute:google-line" class="size-5" />
-          {{ $t('pages.auth.login.google') }}
+          {{ $t('auth.login.google') }}
         </UButton>
         <UButton
           block
@@ -34,7 +34,7 @@ function handleOAuthLogin(provider: string) {
           @click="handleOAuthLogin('github')"
         >
           <Icon name="mingcute:github-line" class="size-5" />
-          {{ $t('pages.auth.login.github') }}
+          {{ $t('auth.login.github') }}
         </UButton>
       </div>
     </UCardContent>

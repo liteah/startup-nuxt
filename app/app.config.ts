@@ -7,4 +7,10 @@ export default defineAppConfig({
     icon: true,
     name: 'mingcute:rocket-fill',
   },
+  header: {
+    auth: true,
+    theme: true,
+    language: true,
+    dropdown: false,
+  },
 })

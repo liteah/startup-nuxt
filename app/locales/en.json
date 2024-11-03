@@ -10,43 +10,27 @@
     },
     "language": "Language"
   },
-  "layout": {
-    "landing": {
-      "header": {
-        "auth": {
-          "no_login": "Sign In",
-          "signout": "Sign out",
-          "credit": "Credit:"
-        },
-        "links": {
-          "pricing": "Pricing",
-          "blog": "Blog",
-          "docs": "Docs"
-        }
+  "footer": {
+    "description": "NitroStart is a platform for building and deploying web applications.",
+    "links": {
+      "legal": {
+        "label": "Legal",
+        "terms": "Terms of Service",
+        "privacy": "Privacy Policy"
       },
-      "footer": {
-        "description": "NitroStart is a platform for building and deploying web applications.",
-        "links": {
-          "legal": {
-            "label": "Legal",
-            "terms": "Terms of Service",
-            "privacy": "Privacy Policy"
-          },
-          "product": {
-            "label": "Product",
-            "features": "Features",
-            "blog": "Blog"
-          },
-          "company": {
-            "label": "Company",
-            "about": "About Us",
-            "contact": "Contact Us"
-          },
-          "resources": {
-            "label": "Resources",
-            "docs": "Documentation"
-          }
-        }
+      "product": {
+        "label": "Product",
+        "features": "Features",
+        "blog": "Blog"
+      },
+      "company": {
+        "label": "Company",
+        "about": "About Us",
+        "contact": "Contact Us"
+      },
+      "resources": {
+        "label": "Resources",
+        "docs": "Documentation"
       }
     }
   },
@@ -62,14 +46,27 @@
           "blog": "Blog of NitroStart"
         }
       }
+    }
+  },
+  "auth": {
+    "user": {
+      "account": "Account Settings",
+      "credit": "Credit"
     },
-    "auth": {
-      "login": {
-        "google": "Continue with Google",
-        "github": "Continue with GitHub",
-        "description": "If you don't have an account yet, we'll create one for you.",
-        "title": "Sign in"
-      }
+    "login": {
+      "google": "Continue with Google",
+      "github": "Continue with GitHub",
+      "description": "If you don't have an account yet, we'll create one for you.",
+      "title": "Sign in"
+    },
+    "signout": "Sign Out",
+    "dashboard": "Dashboard",
+    "no_login": "Getting Started"
+  },
+  "header": {
+    "links": {
+      "pricing": "Pricing",
+      "blog": "Blog"
     }
   }
 }

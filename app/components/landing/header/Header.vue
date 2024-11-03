@@ -4,20 +4,15 @@ import { navigationMenuTriggerStyle } from '@/components/ui/navigation-menu'
 const { t, locales, setLocale } = useI18n()
 const localePath = useLocalePath()
 const { loggedIn } = useUserSession()
-
-const config = {
-  theme: true,
-  language: true,
-  auth: true,
-}
+const { header: config } = useAppConfig()
 
 const links = computed(() => [
   {
-    label: t('layout.landing.header.links.pricing'),
+    label: t('header.links.pricing'),
     to: '/pricing',
   },
   {
-    label: t('layout.landing.header.links.blog'),
+    label: t('header.links.blog'),
     to: '/blog',
   },
 ])
@@ -43,11 +38,11 @@ const links = computed(() => [
         </UNavigationMenu>
       </div>
       <div class="flex items-center justify-end lg:flex-1 gap-1.5">
-        <div v-if="!loggedIn" class="hidden lg:flex gap-1.5">
+        <div v-if="!loggedIn || !config.dropdown" class="hidden lg:flex gap-1.5">
           <CommonToggleTheme v-if="config.theme" />
           <CommonToggleLanguage v-if="config.language" />
         </div>
-        <LandingHeaderAuth v-if="config.auth" />
+        <LandingHeaderAuth v-if="config.auth" :show-dropdown="config.dropdown" />
         <div class="lg:hidden">
           <USheet>
             <USheetTrigger as-child>
