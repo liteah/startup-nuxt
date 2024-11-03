@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto relative flex flex-col gap-y-5 py-10 md:flex-row md:justify-between lg:h-[720px] lg:gap-10">
     <div class="absolute bottom-5 hidden lg:right-[410px] lg:block xl:right-[550px]">
-      <PageLandingHeroArrow />
+      <LandingHeroArrow />
     </div>
     <div class="flex h-full items-center justify-center text-center md:w-1/2 md:text-left">
       <div>

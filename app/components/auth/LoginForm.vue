@@ -7,7 +7,7 @@ function handleOAuthLogin(provider: string) {
 <template>
   <UCard class-name="w-[350px] sm:w-[400px] md:w-[450px]">
     <UCardHeader>
-      <LayoutCommonLogo />
+      <CommonLogo />
       <UCardTitle class="text-left text-2xl font-semibold">
         {{ $t('pages.auth.login.title') }}
       </UCardTitle>

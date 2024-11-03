@@ -27,7 +27,7 @@ const links = computed(() => [
   <header class="bg-background/75 backdrop-blur border-b border-muted -mb-px sticky top-0 z-50">
     <div class="container flex items-center justify-between gap-3 h-16">
       <div class="lg:flex-1 flex items-center gap-1.5">
-        <LayoutCommonLogo />
+        <CommonLogo />
       </div>
       <div class="hidden lg:flex">
         <UNavigationMenu>
@@ -44,10 +44,10 @@ const links = computed(() => [
       </div>
       <div class="flex items-center justify-end lg:flex-1 gap-1.5">
         <div v-if="!loggedIn" class="hidden lg:flex gap-1.5">
-          <LayoutCommonToggleTheme v-if="config.theme" />
-          <LayoutCommonToggleLanguage v-if="config.language" />
+          <CommonToggleTheme v-if="config.theme" />
+          <CommonToggleLanguage v-if="config.language" />
         </div>
-        <LayoutLandingHeaderAuth v-if="config.auth" />
+        <LandingHeaderAuth v-if="config.auth" />
         <div class="lg:hidden">
           <USheet>
             <USheetTrigger as-child>

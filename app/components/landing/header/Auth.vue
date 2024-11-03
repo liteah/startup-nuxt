@@ -21,7 +21,7 @@ const { loggedIn, user, clear } = useUserSession()
             {{ user.credit }}
           </div>
         </UDropdownMenuLabel>
-        <LayoutCommonDropdownPreference />
+        <CommonDropdownPreference />
         <UDropdownMenuItem class="flex items-center gap-2" @select="clear">
           <Icon name="mingcute:exit-line" class="size-5" />
           {{ t('layout.landing.header.auth.signout') }}

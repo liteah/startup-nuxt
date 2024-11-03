@@ -4,9 +4,9 @@
 
 <template>
   <div>
-    <LayoutLandingHeader />
+    <LandingHeader />
     <slot />
-    <LayoutLandingFooter />
+    <LandingFooter />
   </div>
 </template>
 

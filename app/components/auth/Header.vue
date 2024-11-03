@@ -12,8 +12,8 @@ const localePath = useLocalePath()
       </UButton>
     </NuxtLink>
     <div class="flex items-center space-x-2">
-      <LayoutCommonToggleLanguage />
-      <LayoutCommonToggleTheme />
+      <CommonToggleLanguage />
+      <CommonToggleTheme />
     </div>
   </header>
 </template>

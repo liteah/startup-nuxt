@@ -55,7 +55,7 @@ const links = computed(() => [
   <footer class="container mx-auto py-16 lg:py-24">
     <section class="grid grid-cols-2 gap-8 lg:grid-cols-6">
       <div class="col-span-full pb-10 lg:col-span-2">
-        <LayoutCommonLogo class="flex justify-start items-start" />
+        <CommonLogo class="flex justify-start items-start" />
         <p class="mt-5 text-muted-foreground">
           {{ t('layout.landing.footer.description') }}
         </p>
