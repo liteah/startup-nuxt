@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -19,13 +13,12 @@ model User {
   email         String    @unique
   emailVerified DateTime?
   avatar        String?
-  plan          Plan      @default(FREE)
-  credit        Int       @default(0)
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
   githubId      String?   @unique
   googleId      String?   @unique
   token         UserToken[]
+  memberships   Membership[]
 }
 
 model UserToken {
@@ -38,8 +31,58 @@ model UserToken {
   expiresAt DateTime
 }
 
+model Workspace {
+  id          String       @id @default(cuid())
+  name        String
+  avatar      String?
+  plan        Plan         @default(FREE)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  members     Membership[]
+  creatorId   String
+  invitations Invitation[]
+}
+
+model Membership {
+  id          String         @id @default(cuid())
+  user        User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      String
+  workspace   Workspace     @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  workspaceId String
+  role        WorkspaceRole @default(MEMBER)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@unique([userId, workspaceId])
+}
+
+model Invitation {
+  id          String           @id @default(cuid())
+  email       String
+  workspace   Workspace        @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  workspaceId String
+  role        WorkspaceRole    @default(MEMBER)
+  status      InvitationStatus @default(PENDING)
+  createdAt   DateTime         @default(now())
+  expiresAt   DateTime
+}
+
 enum Plan {
   FREE
   PRO
   ULTIMATE
+}
+
+enum WorkspaceRole {
+  OWNER
+  ADMIN
+  MEMBER
+  VIEWER
+}
+
+enum InvitationStatus {
+  PENDING
+  ACCEPTED
+  REJECTED
+  EXPIRED
 }

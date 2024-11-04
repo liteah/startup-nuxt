@@ -1,24 +1,14 @@
-<script setup lang=ts>
+<script setup lang="ts">
+import type { Workspace } from '#auth-utils'
+
 const { user, clear } = useUserSession()
 const { t } = useI18n()
 
-const teams = [{
-  name: 'Acme Inc',
-  logo: 'mingcute:user-1-fill',
-  plan: 'Enterprise',
-}, {
-  name: 'Acme Corp.',
-  logo: 'mingcute:user-2-fill',
-  plan: 'Startup',
-}, {
-  name: 'Evil Corp.',
-  logo: 'mingcute:user-3-fill',
-  plan: 'Free',
-}]
-const activeTeam = ref(teams[0])
+const workspaces = computed(() => user.value?.workspace ? [user.value.workspace] : [])
+const activeWorkspace = ref(workspaces.value[0])
 
-function setActiveTeam(team: typeof teams[number]) {
-  activeTeam.value = team
+function setActiveWorkspace(workspace: Workspace) {
+  activeWorkspace.value = workspace
 }
 </script>
 
@@ -34,12 +24,16 @@ function setActiveTeam(team: typeof teams[number]) {
                   size="lg"
                   class="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
                 >
-                  <!-- <div class="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-                    <Icon :name="activeTeam.logo" class="size-4" />
-                  </div> -->
+                  <div class="flex aspect-square size-8 items-center justify-center rounded-lg border bg-sidebar-primary text-sidebar-primary-foreground">
+                    <UAvatar v-if="activeWorkspace?.avatar" class="size-8">
+                      <UAvatarImage :src="activeWorkspace.avatar" />
+                      <UAvatarFallback>{{ activeWorkspace.name.slice(0, 2) }}</UAvatarFallback>
+                    </UAvatar>
+                    <Icon v-else name="mingcute:building-1-line" class="size-4" />
+                  </div>
                   <div class="grid flex-1 text-left text-sm leading-tight">
-                    <span class="truncate font-semibold">{{ activeTeam?.name }}</span>
-                    <span class="truncate text-xs">{{ activeTeam?.plan }}</span>
+                    <span class="truncate font-semibold">{{ activeWorkspace?.name }}</span>
+                    <span class="truncate text-xs capitalize">{{ activeWorkspace?.plan?.toLowerCase() }}</span>
                   </div>
                 </USidebarMenuButton>
               </UDropdownMenuTrigger>
@@ -50,15 +44,19 @@ function setActiveTeam(team: typeof teams[number]) {
                 :side-offset="4"
               >
                 <UDropdownMenuItem
-                  v-for="(team) in teams"
-                  :key="team.name"
+                  v-for="workspace in workspaces"
+                  :key="workspace.id"
                   class="gap-2 p-2"
-                  @click="setActiveTeam(team)"
+                  @click="setActiveWorkspace(workspace)"
                 >
                   <div class="flex size-6 items-center justify-center rounded-sm border">
-                    <Icon :name="team.logo" class="size-4 shrink-0" />
+                    <UAvatar v-if="workspace.avatar" class="size-6">
+                      <UAvatarImage :src="workspace.avatar" />
+                      <UAvatarFallback>{{ workspace.name.slice(0, 2) }}</UAvatarFallback>
+                    </UAvatar>
+                    <Icon v-else name="mingcute:building-1-line" class="size-4 shrink-0" />
                   </div>
-                  {{ team.name }}
+                  {{ workspace.name }}
                 </UDropdownMenuItem>
                 <UDropdownMenuSeparator />
                 <UDropdownMenuItem class="gap-2 p-2">
@@ -66,7 +64,7 @@ function setActiveTeam(team: typeof teams[number]) {
                     <Icon name="mingcute:add-line" class="size-4" />
                   </div>
                   <div class="font-medium text-muted-foreground">
-                    Add team
+                    {{ t('workspace.create') }}
                   </div>
                 </UDropdownMenuItem>
               </UDropdownMenuContent>
@@ -86,7 +84,7 @@ function setActiveTeam(team: typeof teams[number]) {
                 >
                   <UAvatar class="h-8 w-8 rounded-lg">
                     <UAvatarImage :src="user.avatar" />
-                    <UAvatarFallback>{{ user.name.slice(0, 2) || user.email.slice(0, 2) }}</UAvatarFallback>
+                    <UAvatarFallback>{{ user.name?.slice(0, 2) || user.email.slice(0, 2) }}</UAvatarFallback>
                   </UAvatar>
                   <div class="grid flex-1 text-left text-sm leading-tight">
                     <span class="truncate font-semibold">{{ user.name || user.email.split('@')[0] }}</span>

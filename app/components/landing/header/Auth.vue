@@ -17,13 +17,6 @@ const { loggedIn, user, clear } = useUserSession()
         </UAvatar>
       </UDropdownMenuTrigger>
       <UDropdownMenuContent>
-        <UDropdownMenuLabel class="flex flex-col gap-2">
-          <div class="flex items-center gap-2 font-regular">
-            <Icon name="mingcute:currency-dollar-2-line" class="size-5" />
-            {{ t('auth.user.credit') }}
-            {{ user.credit }}
-          </div>
-        </UDropdownMenuLabel>
         <CommonDropdownPreference />
         <UDropdownMenuItem class="flex items-center gap-2" @select="clear">
           <Icon name="mingcute:exit-line" class="size-5" />
