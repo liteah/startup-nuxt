@@ -8,7 +8,9 @@
       "system": "System",
       "title": "Appearance"
     },
-    "language": "Language"
+    "language": "Language",
+    "confirm": "Confirm",
+    "optional_tip": "(Optional)"
   },
   "footer": {
     "description": "NitroStart is a platform for building and deploying web applications.",
@@ -68,5 +70,12 @@
       "pricing": "Pricing",
       "blog": "Blog"
     }
+  },
+  "workspace": {
+    "create": "Create Workspace",
+    "description": "Workspaces are shared environments where members can collaborate. After creating a workspace, you can invite others to join.",
+    "name": "Workspace Name",
+    "avatar": "Workspace Logo",
+    "created_success": "Workspace created success."
   }
 }

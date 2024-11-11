@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import type { Workspace } from '#auth-utils'
+import { toTypedSchema } from '@vee-validate/zod'
+import { toast } from 'vue-sonner'
+import { z } from 'zod'
 
 const { user, clear } = useUserSession()
 const { t } = useI18n()
@@ -10,6 +13,30 @@ const activeWorkspace = ref(workspaces.value[0])
 function setActiveWorkspace(workspace: Workspace) {
   activeWorkspace.value = workspace
 }
+
+const formSchema = toTypedSchema(z.object({
+  name: z.string().min(1).max(30),
+  avatar: z.string().url().optional(),
+}))
+
+async function onSubmit(values: any) {
+  try {
+    const { data, error } = await useFetch('/api/workspace/create', {
+      method: 'POST',
+      body: {
+        name: values.name,
+        avatar: values.avatar || null,
+      },
+    })
+    if (error.value)
+      throw error.value
+    if (data.value)
+      toast.success(t('workspace.created_success'))
+  }
+  catch (error: any) {
+    toast.error(error)
+  }
+}
 </script>
 
 <template>
@@ -18,57 +45,64 @@ function setActiveWorkspace(workspace: Workspace) {
       <USidebarHeader>
         <USidebarMenu>
           <USidebarMenuItem>
-            <UDropdownMenu>
-              <UDropdownMenuTrigger as-child>
-                <USidebarMenuButton
-                  size="lg"
-                  class="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
-                >
-                  <div class="flex aspect-square size-8 items-center justify-center rounded-lg border bg-sidebar-primary text-sidebar-primary-foreground">
-                    <UAvatar v-if="activeWorkspace?.avatar" class="size-8">
-                      <UAvatarImage :src="activeWorkspace.avatar" />
-                      <UAvatarFallback>{{ activeWorkspace.name.slice(0, 2) }}</UAvatarFallback>
-                    </UAvatar>
-                    <Icon v-else name="mingcute:building-1-line" class="size-4" />
-                  </div>
-                  <div class="grid flex-1 text-left text-sm leading-tight">
-                    <span class="truncate font-semibold">{{ activeWorkspace?.name }}</span>
-                    <span class="truncate text-xs capitalize">{{ activeWorkspace?.plan?.toLowerCase() }}</span>
-                  </div>
-                </USidebarMenuButton>
-              </UDropdownMenuTrigger>
-              <UDropdownMenuContent
-                class="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg"
-                align="start"
-                side="bottom"
-                :side-offset="4"
-              >
-                <UDropdownMenuItem
-                  v-for="workspace in workspaces"
-                  :key="workspace.id"
-                  class="gap-2 p-2"
-                  @click="setActiveWorkspace(workspace)"
-                >
-                  <div class="flex size-6 items-center justify-center rounded-sm border">
-                    <UAvatar v-if="workspace.avatar" class="size-6">
-                      <UAvatarImage :src="workspace.avatar" />
-                      <UAvatarFallback>{{ workspace.name.slice(0, 2) }}</UAvatarFallback>
-                    </UAvatar>
-                    <Icon v-else name="mingcute:building-1-line" class="size-4 shrink-0" />
-                  </div>
-                  {{ workspace.name }}
-                </UDropdownMenuItem>
-                <UDropdownMenuSeparator />
-                <UDropdownMenuItem class="gap-2 p-2">
-                  <div class="flex size-6 items-center justify-center rounded-md border bg-background">
-                    <Icon name="mingcute:add-line" class="size-4" />
-                  </div>
-                  <div class="font-medium text-muted-foreground">
-                    {{ t('workspace.create') }}
-                  </div>
-                </UDropdownMenuItem>
-              </UDropdownMenuContent>
-            </UDropdownMenu>
+            <UForm v-slot="{ submitForm }" :validation-schema="formSchema" @submit.prevent="onSubmit">
+              <UDialog>
+                <UDropdownMenu>
+                  <UDropdownMenuTrigger as-child>
+                    <USidebarMenuButton
+                      size="lg"
+                      class="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+                    >
+                      <div class="flex aspect-square size-8 items-center justify-center rounded-lg border bg-sidebar-primary text-sidebar-primary-foreground">
+                        <UAvatar v-if="activeWorkspace?.avatar" class="size-8">
+                          <UAvatarImage :src="activeWorkspace.avatar" />
+                          <UAvatarFallback>{{ activeWorkspace.name.slice(0, 2) }}</UAvatarFallback>
+                        </UAvatar>
+                        <Icon v-else name="mingcute:building-1-line" class="size-4" />
+                      </div>
+                      <div class="grid flex-1 text-left text-sm leading-tight">
+                        <span class="truncate font-semibold">{{ activeWorkspace?.name }}</span>
+                        <span class="truncate text-xs capitalize">{{ activeWorkspace?.plan?.toLowerCase() }}</span>
+                      </div>
+                    </USidebarMenuButton>
+                  </UDropdownMenuTrigger>
+                  <UDropdownMenuContent
+                    class="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg"
+                    align="start"
+                    side="bottom"
+                    :side-offset="4"
+                  >
+                    <UDropdownMenuItem
+                      v-for="workspace in workspaces"
+                      :key="workspace.id"
+                      class="gap-2 p-2"
+                      @click="setActiveWorkspace(workspace)"
+                    >
+                      <div class="flex size-6 items-center justify-center rounded-sm border">
+                        <UAvatar v-if="workspace.avatar" class="size-6">
+                          <UAvatarImage :src="workspace.avatar" />
+                          <UAvatarFallback>{{ workspace.name.slice(0, 2) }}</UAvatarFallback>
+                        </UAvatar>
+                        <Icon v-else name="mingcute:building-1-line" class="size-4 shrink-0" />
+                      </div>
+                      {{ workspace.name }}
+                    </UDropdownMenuItem>
+                    <UDropdownMenuSeparator />
+                    <UDialogTrigger as-child>
+                      <UDropdownMenuItem class="gap-2 p-2">
+                        <div class="flex size-6 items-center justify-center rounded-md border bg-background">
+                          <Icon name="mingcute:add-line" class="size-4" />
+                        </div>
+                        <div class="font-medium text-muted-foreground">
+                          {{ t('workspace.create') }}
+                        </div>
+                      </UDropdownMenuItem>
+                    </UDialogTrigger>
+                  </UDropdownMenuContent>
+                </UDropdownMenu>
+                <AppModalWorkspaceCreate />
+              </UDialog>
+            </UForm>
           </USidebarMenuItem>
         </USidebarMenu>
       </USidebarHeader>

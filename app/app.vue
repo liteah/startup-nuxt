@@ -11,4 +11,5 @@ useHead({
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>
+  <UToaster rich-colors colse-button />
 </template>

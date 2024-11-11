@@ -41,6 +41,9 @@ importers:
       '@radix-icons/vue':
         specifier: ^1.0.0
         version: 1.0.0(vue@3.5.12(typescript@5.6.3))
+      '@vee-validate/zod':
+        specifier: ^4.14.6
+        version: 4.14.6(vue@3.5.12(typescript@5.6.3))
       '@vueuse/core':
         specifier: ^11.1.0
         version: 11.1.0(vue@3.5.12(typescript@5.6.3))
@@ -62,12 +65,21 @@ importers:
       typescript:
         specifier: ^5.6.3
         version: 5.6.3
+      vee-validate:
+        specifier: ^4.14.6
+        version: 4.14.6(vue@3.5.12(typescript@5.6.3))
       vue:
         specifier: latest
         version: 3.5.12(typescript@5.6.3)
       vue-router:
         specifier: latest
         version: 4.4.5(vue@3.5.12(typescript@5.6.3))
+      vue-sonner:
+        specifier: ^1.2.5
+        version: 1.2.5
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
     devDependencies:
       '@antfu/eslint-config':
         specifier: ^3.8.0
@@ -2060,6 +2072,9 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
+  '@vee-validate/zod@4.14.6':
+    resolution: {integrity: sha512-ywhz3MBl1mcmGdrlTIo738l/d4mvPstJfDdKOt0yzKoafTAz5lnv0ax1D7IaavA4IQRKQwjd2hmFqAnt52DOEw==}
+
   '@vercel/nft@0.26.5':
     resolution: {integrity: sha512-NHxohEqad6Ra/r4lGknO52uc/GrWILXAMs1BB4401GTqww0fw1bAqzpG1XHuDO+dprg4GvsD9ZLLSsdo78p9hQ==}
     engines: {node: '>=16'}
@@ -2173,6 +2188,9 @@ packages:
   '@vue/devtools-api@6.6.4':
     resolution: {integrity: sha512-sGhTPMuXqZ1rVOk32RylztWkfXTRhuS7vgAKv0zjqk8gbsHkJ7xfFf+jbySxt7tWObEJwyKaHMikV/WGDiQm8g==}
 
+  '@vue/devtools-api@7.6.2':
+    resolution: {integrity: sha512-NCT0ujqlwAhoFvCsAG7G5qS8w/A/dhvFSt2BhmNxyqgpYDrf9CG1zYyWLQkE3dsZ+5lCT6ULUic2VKNaE07Vzg==}
+
   '@vue/devtools-core@7.4.4':
     resolution: {integrity: sha512-DLxgA3DfeADkRzhAfm3G2Rw/cWxub64SdP5b+s5dwL30+whOGj+QNhmyFpwZ8ZTrHDFRIPj0RqNzJ8IRR1pz7w==}
     peerDependencies:
@@ -2181,8 +2199,14 @@ packages:
   '@vue/devtools-kit@7.4.4':
     resolution: {integrity: sha512-awK/4NfsUG0nQ7qnTM37m7ZkEUMREyPh8taFCX+uQYps/MTFEum0AD05VeGDRMXwWvMmGIcWX9xp8ZiBddY0jw==}
 
+  '@vue/devtools-kit@7.6.2':
+    resolution: {integrity: sha512-k61BxHRmcTtIQZFouF9QWt9nCCNtSdw12lhg8VNtHq5/XOBGD+ewiK27a40UJ8UPYoCJvi80hbvbYr5E/Zeu1g==}
+
   '@vue/devtools-shared@7.5.3':
     resolution: {integrity: sha512-i2tCUtAEQ0S8AmTuy6FSOmVKCB5ajmMaVrrw0ypX75koLSo1mssQ8zezds5IoUZHRiXBsgoGHbJGuGwyrSGhqQ==}
+
+  '@vue/devtools-shared@7.6.2':
+    resolution: {integrity: sha512-lcjyJ7hCC0W0kNwnCGMLVTMvDLoZgjcq9BvboPgS+6jQyDul7fpzRSKTGtGhCHoxrDox7qBAKGbAl2Rcf7GE1A==}
 
   '@vue/reactivity@3.5.12':
     resolution: {integrity: sha512-UzaN3Da7xnJXdz4Okb/BGbAaomRHc3RdoWqTzlvd9+WBR5m3J39J1fGcHes7U3za0ruYn/iYy/a1euhMEHvTAg==}
@@ -6369,6 +6393,10 @@ packages:
     resolution: {integrity: sha512-tLq3bSNx+xSpwvAJnzrK0Ep5CLNWjvFTOp71URMaAEWBfRb9nnJiBoUe0tF8bI4ZFO3omgBR6NvnbzVUT3Ly4g==}
     engines: {node: '>=14.16'}
 
+  type-fest@4.26.1:
+    resolution: {integrity: sha512-yOGpmOAL7CkKe/91I5O3gPICmJNLJ1G4zFYVAsRHg7M64biSnPtRj0WNQt++bRkjYOqjWXrhnUw1utzmVErAdg==}
+    engines: {node: '>=16'}
+
   type-is@1.6.18:
     resolution: {integrity: sha512-TkRKr9sUTxEH8MdfuCSP7VizJyzRNMjj2J2do2Jr3Kym598JVdEksuzPQCnlFPW4ky9Q+iA+ma9BGm06XQBy8g==}
     engines: {node: '>= 0.6'}
@@ -6610,6 +6638,11 @@ packages:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
 
+  vee-validate@4.14.6:
+    resolution: {integrity: sha512-5w6e+YqJFLfzRR6gmRZgE6ZIVZ5nW1UAQdAlu78Oy3CFVrhTraqMMsfDC/Kmz7CNtCpIYaXxC8oKfr2hAiTnew==}
+    peerDependencies:
+      vue: ^3.4.26
+
   vfile-location@5.0.3:
     resolution: {integrity: sha512-5yXvWDEgqeiYiBe1lbxYF7UMAIm/IcopxMHrMQDq3nvKcjPKIhZklUKL+AE7J7uApI4kwe2snsK+eI6UTj9EHg==}
 
@@ -6795,6 +6828,9 @@ packages:
     resolution: {integrity: sha512-4fKZygS8cH1yCyuabAXGUAsyi1b2/o/OKgu/RUb+znIYOxPRxdkytJEx+0wGcpBE1pX6vUgh5jwWOKRGvuA/7Q==}
     peerDependencies:
       vue: ^3.2.0
+
+  vue-sonner@1.2.5:
+    resolution: {integrity: sha512-dAFCdq2cYxEwvW4gHuJhySCXklmxOWzjl5QwkNL9IIdkqyvSkdu+YnAbnJBdIAH/zo1bhXTuGG+m0Two4AX/KA==}
 
   vue@3.5.12:
     resolution: {integrity: sha512-CLVZtXtn2ItBIi/zHZ0Sg1Xkb7+PU32bJJ8Bmy7ts3jxXTcbfsEfBivFYYWz1Hur+lalqGAh65Coin0r+HRUfg==}
@@ -9470,6 +9506,14 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  '@vee-validate/zod@4.14.6(vue@3.5.12(typescript@5.6.3))':
+    dependencies:
+      type-fest: 4.26.1
+      vee-validate: 4.14.6(vue@3.5.12(typescript@5.6.3))
+      zod: 3.23.8
+    transitivePeerDependencies:
+      - vue
+
   '@vercel/nft@0.26.5':
     dependencies:
       '@mapbox/node-pre-gyp': 1.0.11
@@ -9642,6 +9686,10 @@ snapshots:
 
   '@vue/devtools-api@6.6.4': {}
 
+  '@vue/devtools-api@7.6.2':
+    dependencies:
+      '@vue/devtools-kit': 7.6.2
+
   '@vue/devtools-core@7.4.4(vite@5.4.10(@types/node@22.7.9)(stylus@0.57.0)(terser@5.36.0))(vue@3.5.12(typescript@5.6.3))':
     dependencies:
       '@vue/devtools-kit': 7.4.4
@@ -9664,7 +9712,21 @@ snapshots:
       speakingurl: 14.0.1
       superjson: 2.2.1
 
+  '@vue/devtools-kit@7.6.2':
+    dependencies:
+      '@vue/devtools-shared': 7.6.2
+      birpc: 0.2.19
+      hookable: 5.5.3
+      mitt: 3.0.1
+      perfect-debounce: 1.0.0
+      speakingurl: 14.0.1
+      superjson: 2.2.1
+
   '@vue/devtools-shared@7.5.3':
+    dependencies:
+      rfdc: 1.4.1
+
+  '@vue/devtools-shared@7.6.2':
     dependencies:
       rfdc: 1.4.1
 
@@ -14990,6 +15052,8 @@ snapshots:
 
   type-fest@3.13.1: {}
 
+  type-fest@4.26.1: {}
+
   type-is@1.6.18:
     dependencies:
       media-typer: 0.3.0
@@ -15317,6 +15381,12 @@ snapshots:
 
   vary@1.1.2: {}
 
+  vee-validate@4.14.6(vue@3.5.12(typescript@5.6.3)):
+    dependencies:
+      '@vue/devtools-api': 7.6.2
+      type-fest: 4.26.1
+      vue: 3.5.12(typescript@5.6.3)
+
   vfile-location@5.0.3:
     dependencies:
       '@types/unist': 3.0.3
@@ -15537,6 +15607,8 @@ snapshots:
     dependencies:
       '@vue/devtools-api': 6.6.4
       vue: 3.5.12(typescript@5.6.3)
+
+  vue-sonner@1.2.5: {}
 
   vue@3.5.12(typescript@5.6.3):
     dependencies:
